@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+
+
+metadata:
+        name: messagebroker
+        labels:
+                app: messagebroker
+
+
+spec:
+        containers:
+        - name: msgbroker
+          image: rabbitmq:3
+
+          ports:
+          - name: rabbitmq-port
+            containerPort: 5672
