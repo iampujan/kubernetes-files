@@ -1,18 +1,25 @@
-apiVersion: v1
-kind: Pod
-
-
+apiVersion: apps/v1
+kind: Deployment
 metadata:
         name: items-api
         labels:
                 app: items-api
 
 spec:
-        containers:
-        - name: items-api
-          image: regmicmahesh/items_api:latest
-          command: ["./mock-items-api", "0.0.0.0:9001"]
-          ports:
-          - name: webport
-            containerPort: 9001 
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: items-api
+        template:
+                metadata:
+                        labels:
+                                app: items-api
+                spec:
+                        containers:
+                        - name: items-api
+                          image: regmicmahesh/items_api:latest
+                          command: ["./mock-items-api", "0.0.0.0:9001"]
+                          ports:
+                          - name: webport
+                            containerPort: 9001 
 

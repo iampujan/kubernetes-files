@@ -8,5 +8,5 @@ spec:
         - port: 5672
         selector:
                 app: messagebroker
-        type: NodePort
+        type: LoadBalancer
 

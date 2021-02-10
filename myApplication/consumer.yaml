@@ -1,11 +1,22 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 
 
 metadata:
         name: otpconsumer
+        labels:
+                app: otpconsumer
 
 spec:
-        containers:
-        - name: otpconsumer
-          image: regmicmahesh/otp_consumer:latest
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: otpconsumer
+        template:
+                metadata:
+                        labels:
+                                app: otpconsumer
+                spec:
+                        containers:
+                        - name: otpconsumer
+                          image: regmicmahesh/otp_consumer:latest

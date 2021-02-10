@@ -8,5 +8,5 @@ spec:
         - port: 9001
         selector:
                 app: items-api
-        type: NodePort
+        type: LoadBalancer
 

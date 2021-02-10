@@ -8,5 +8,5 @@ spec:
         - port: 9000
         selector:
                 app: order-api
-        type: NodePort
+        type: LoadBalancer
 
