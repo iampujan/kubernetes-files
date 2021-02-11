@@ -24,4 +24,9 @@ spec:
                           ports:
                           - name: webport
                             containerPort: 9000 
+                          resources:
+                            limits:
+                              cpu: 500m
+                            requests:
+                              cpu: 200m
 
